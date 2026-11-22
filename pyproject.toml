@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pbitbench"
+version = "0.1.0"
+description = "Does software p-bit sampling save energy on a Raspberry Pi? An INA219-measured benchmark vs a small MLP."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Aysel Elshenawy" }]
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.22"]
+
+[project.optional-dependencies]
+pi = ["smbus2>=0.4"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+pbitbench = "pbitbench.bench:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
